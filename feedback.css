@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #357abd;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --danger-color: #e74c3c;
+    --background: #f8f9fa;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --card-background: #ffffff;
+    --border-color: rgba(0,0,0,0.05);
+    --chart-background: #f8f9fa;
+}
+
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --secondary-color: #3b82f6;
+    --background: #1a1a1a;
+    --card-background: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --border-color: rgba(255,255,255,0.05);
+    --chart-background: #363636;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.feedback-header h2 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.feedback-header .subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.theme-toggle {
+    margin-left: 1rem;
+}
+
+#theme-switch {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#theme-switch:hover {
+    background: var(--border-color);
+}
+
+.progress-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.progress-card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.5s ease forwards;
+    border: 1px solid var(--border-color);
+}
+
+.progress-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.progress-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.progress-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.progress-card:hover {
+    transform: translateY(-5px);
+}
+
+.progress-card .icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.progress-card .icon i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.progress-card h4 {
+    color: var(--text-secondary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.progress-card .value {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.alert i {
+    color: #856404;
+    font-size: 1.5rem;
+}
+
+.alert-content h4 {
+    color: #856404;
+    margin: 0 0 0.5rem 0;
+}
+
+.alert-content p {
+    color: #856404;
+    margin: 0;
+}
+
+.performance-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.performance-section h3 {
+    color: var(--text-primary);
+    margin: 0 0 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 250px;
+    gap: 2rem;
+    padding: 1rem;
+    background: var(--chart-background);
+    border-radius: 10px;
+}
+
+.chart-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+}
+
+.bar-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bar {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    transition: height 0.3s ease;
+}
+
+.bar.grade-a {
+    background: var(--success-color);
+}
+
+.bar.grade-b {
+    background: var(--primary-color);
+}
+
+.bar.grade-c {
+    background: var(--warning-color);
+}
+
+.bar.grade-d, .bar.grade-f {
+    background: var(--danger-color);
+}
+
+.grade-label {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.ai-recommendations {
+    margin-top: 2rem;
+}
+
+.ai-recommendations h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.recommendation-card {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+    animation: scaleIn 0.5s ease forwards;
+    opacity: 0;
+    border: 1px solid var(--border-color);
+}
+
+.recommendation-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.recommendation-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.recommendation-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-3px);
+}
+
+.recommendation-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.recommendation-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.recommendation-card p {
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-top: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .progress-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        gap: 1rem;
+    }
+    
+    .chart-column {
+        width: 40px;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
