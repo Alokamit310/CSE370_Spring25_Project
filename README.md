@@ -16,7 +16,7 @@ A dynamic, full-stack web application designed to enhance student productivity, 
 *   Aggregates and displays real-time summaries such as total pending tasks and upcoming study deadlines using optimized SQL queries.
 
 ### 3. Task Management (To-Do List) 📋
-*   Create, track, and highlight daily responsibilities with custom categorization.
+*   Create, track, and highlight daily responsibilities with custom color-coded categorization.
 *   Sort and filter tasks efficiently by deadline date or priority levels (High/Medium/Low).
 
 ### 4. Interactive Study Planner 📚
@@ -25,7 +25,7 @@ A dynamic, full-stack web application designed to enhance student productivity, 
 
 ### 5. Grade Tracking & Performance Insights 📈
 *   Input and store marks for individual courses and assessments.
-*   Automated automated calculation of letter grades (e.g., A+, A, B, etc.).
+*   Automated calculation of letter grades (e.g., A+, A, B, etc.) based on standard academic grading systems.
 *   Algorithmic backend processing that generates tailored academic suggestions and highlights subjects at risk.
 
 ### 6. Dynamic Calendar System 📅
@@ -80,12 +80,17 @@ The underlying database maps relationships across the student ecosystem. The cor
 
 This platform was developed as part of **CSE370 (Database Systems)**, Lab Section **04**, Group **14**:
 
-*   **Shah Mohaimin Kabir** (ID: 23101318)
-    *   *Core Modules*: Registration, Secure Authentication, Profile Management, and Token Password Recoveries.
-*   **Alok Sarker Amit** (ID: 23101187)
-    *   *Core Modules*: Dynamic Dashboard Aggregations, Interface Animations, To-Do Lists, and Subject Study Planners.
-*   **Sumaiya Akhter Moon** (ID: 23101036)
-    *   *Core Modules*: Grade Tracking engines, Dynamic AJAX Calendar grids, Performance Analytics, and System Feedbacks.
+*   **Alok Sarker Amit** (ID: 23101187) — *Lead Developer*
+    *   **Frontend & UI Design**: Built the core system interfaces, responsive dashboard alignments (`dashboard.css`), unified theme parameters, and interface animations.
+    *   **Task Management Module**: Developed the complete frontend and backend CRUD operations for the interactive To-Do list, enabling secure session-based tracking, priority sorting, and status toggles.
+    *   **Study Planner & Integration**: Programmed the modular study schedule layout (`study_plan.php`), database interactions for file attachments (PDF/JPG), and designed structural data aggregation to minimize dashboard query execution times.
+    *   **Core Systems**: Co-developed the main framework foundation, authentication views, and routing mechanisms.
+
+*   **Sumaiya Akhter Moon** (ID: 23101036) — *Core Developer*
+    *   **Grade Management & Logic**: Developed the interface and the server-side grade compilation algorithms (`grades.php`) to dynamically transform numerical assessment metrics into functional letter grades.
+    *   **Asynchronous Calendar Engine**: Programmed the grid generation interface (`calendar.php`) alongside dynamic asynchronous event fetch handlers (`fetch_calendar.php`) for seamless database timeline syncs.
+    *   **Academic Recommendation Pipeline**: Written algorithms to read performance indices and output tailored actionable warnings for courses flagged at operational risk.
+    *   **Feedback System**: Managed the application suggestion structures and data parsing metrics.
 
 ---
 
@@ -97,15 +102,10 @@ This platform was developed as part of **CSE370 (Database Systems)**, Lab Sectio
     cd CSE370_Spring25_Project
     ```
 2.  **Environment Setup**:
-    *   Move the cloned directory to your local server directory (e.g., `htdocs` in XAMPP or `www` in WampServer).
+    *   Move the cloned directory to your local server path (e.g., `htdocs` in XAMPP or `www` in WampServer).
     *   Ensure **Apache** and **MySQL** are running inside your local service control panel.
 3.  **Database Configuration**:
     *   Open `config.php` and configure your local MySQL credentials (`localhost`, `username`, `password`).
     *   Run `setup_database.php` via your web browser or command line to initialize schemas and generate all relational tables automatically.
 4.  **Launch**:
     *   Navigate to `http://localhost/CSE370_Spring25_Project/index.php` in your web browser.
-```
-
-***
-
-If you would like, let me know if you need help **updating instructions**, adding **specific installation commands**, or writing **sample MySQL queries** to make this file even more detailed!
